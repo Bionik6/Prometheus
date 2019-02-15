@@ -98,4 +98,24 @@ class PrometheusTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    
+    func testMapCarriesOverErrors() {
+        let promise = Promise<Int>()
+        let testError = NSError(domain: "test", code: 1, userInfo: nil)
+        let exp = expectation(description: "did not call catch block")
+        promise.map { x in
+            return String(x)
+        }.then { _ in
+            XCTFail()
+        }.catch { error in
+            exp.fulfill()
+            let e = error as NSError
+            XCTAssertEqual(e.domain, "test")
+            XCTAssertEqual(e.code, 1)
+        }
+        promise.fail(testError)
+        wait(for: [exp], timeout: 1.0)
+    }
+
+    
 }
