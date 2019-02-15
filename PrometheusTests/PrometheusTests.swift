@@ -15,6 +15,7 @@ class PrometheusTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
+    
     func testInitializeWithValue() {
         let promise = Promise(value: 5)
         XCTAssertNotNil(promise.value)
@@ -23,13 +24,51 @@ class PrometheusTests: XCTestCase {
         }
     }
  
+    
     func testFullfillPromiseSetsValue() {
+        let stringValue = "Hello World"
+        
         let promise = Promise<String>(value: nil)
         XCTAssertNil(promise.value)
         
-        promise.fullfill("Hello Guys")
+        promise.fullfill(stringValue)
         XCTAssertNotNil(promise.value)
         
-        if let value = 
+        if let value = promise.value {
+            XCTAssertEqual(value, stringValue)
+        }
     }
+    
+    
+    func testFullfillCallsThenBlock() {
+        let stringValue = "Hello World"
+        
+        let promise = Promise<String>(value: nil)
+        let exp = expectation(description: "did not call then block")
+        promise.then { value in
+            exp.fulfill()
+            XCTAssertEqual(value, stringValue)
+        }
+        promise.fullfill(stringValue)
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+
+    func testFailCallsCatchBlock() {
+        let promise = Promise<String>(value: nil)
+        let exp = expectation(description: "did not call catch block")
+        let testError = NSError(domain: "test", code: 1, userInfo: nil)
+        promise.then { value in
+            XCTFail()
+        }.catch { error in
+            exp.fulfill()
+            let e = error as NSError
+            XCTAssertEqual(e.domain, "test")
+            XCTAssertEqual(e.code, 1)
+        }
+        
+        promise.fail(testError)
+        wait(for: [exp], timeout: 1.0)
+    }
+    
 }
