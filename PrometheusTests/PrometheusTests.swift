@@ -45,7 +45,7 @@ class PrometheusTests: XCTestCase {
         
         let promise = Promise<String>(value: nil)
         let exp = expectation(description: "did not call then block")
-        promise.then { value in
+        _ = promise.then { value in
             exp.fulfill()
             XCTAssertEqual(value, stringValue)
         }

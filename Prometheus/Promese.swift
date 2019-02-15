@@ -23,6 +23,7 @@ class Promise<T> {
         thenCallbacks.forEach { $0(value) }
     }
     
+    @discardableResult
     func `catch`(_ callback: @escaping (Error)->()) -> Promise<T> {
         catchCallbacks.append(callback)
         return self
