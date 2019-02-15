@@ -10,7 +10,7 @@
 		406DEF482216E171009CF3A4 /* Prometheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406DEF3E2216E171009CF3A4 /* Prometheus.framework */; };
 		406DEF4D2216E171009CF3A4 /* PrometheusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406DEF4C2216E171009CF3A4 /* PrometheusTests.swift */; };
 		406DEF4F2216E171009CF3A4 /* Prometheus.h in Headers */ = {isa = PBXBuildFile; fileRef = 406DEF412216E171009CF3A4 /* Prometheus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		406DEF592216E19F009CF3A4 /* Promese.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406DEF582216E19F009CF3A4 /* Promese.swift */; };
+		406DEF592216E19F009CF3A4 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406DEF582216E19F009CF3A4 /* Promise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 		406DEF472216E171009CF3A4 /* PrometheusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrometheusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		406DEF4C2216E171009CF3A4 /* PrometheusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrometheusTests.swift; sourceTree = "<group>"; };
 		406DEF4E2216E171009CF3A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		406DEF582216E19F009CF3A4 /* Promese.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promese.swift; sourceTree = "<group>"; };
+		406DEF582216E19F009CF3A4 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			children = (
 				406DEF412216E171009CF3A4 /* Prometheus.h */,
 				406DEF422216E171009CF3A4 /* Info.plist */,
-				406DEF582216E19F009CF3A4 /* Promese.swift */,
+				406DEF582216E19F009CF3A4 /* Promise.swift */,
 			);
 			path = Prometheus;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				406DEF592216E19F009CF3A4 /* Promese.swift in Sources */,
+				406DEF592216E19F009CF3A4 /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
